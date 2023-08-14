@@ -23,7 +23,9 @@ from im2mesh.utils import libmcubes
 from im2mesh.utils.libkdtree import KDTree
 import re
 from approxmatch import tf_approxmatch
+import sys
 
+args = sys.argv
 
 
 def safe_norm_np(x, epsilon=1e-12, axis=1):
@@ -84,8 +86,8 @@ def vis_single_points(points, plyname):
         for i in range(int(points.shape[0])):
             f.write('{} {} {} {} {} {}\n'.format(points[i,0], points[i,1], points[i,2], 255, 0, 0))
 
-def noise_points_produce():
-    mesh = trimesh.load("./chair.off", force='mesh')
+def noise_points_produce(data_path):
+    mesh = trimesh.load(data_path, force='mesh')
     pointclouds, _= mesh.sample(50000, return_index=True)
     pointclouds = np.asarray(pointclouds).reshape(-1,3)
     noises = []
@@ -123,7 +125,7 @@ def process_data(data_dir, dataname):
     pointcloud = pointcloud / shape_scale
 
 
-noise_points_produce()
+noise_points_produce(data_path=args[1])
         
     
                     
