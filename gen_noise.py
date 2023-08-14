@@ -86,7 +86,7 @@ def vis_single_points(points, plyname):
         for i in range(int(points.shape[0])):
             f.write('{} {} {} {} {} {}\n'.format(points[i,0], points[i,1], points[i,2], 255, 0, 0))
 
-def noise_points_produce(data_path):
+def noise_points_produce(data_path, save_path):
     mesh = trimesh.load(data_path, force='mesh')
     pointclouds, _= mesh.sample(50000, return_index=True)
     pointclouds = np.asarray(pointclouds).reshape(-1,3)
@@ -96,7 +96,7 @@ def noise_points_produce(data_path):
         noise = pointclouds + noise * 0.01
         noises.append(noise)
     noises = np.asarray(noises).reshape(-1,3)
-    vis_single_points(noises,"./noise_chair.ply")
+    vis_single_points(noises,save_path)
     # pnts = noise
     # ptree = cKDTree(pnts)
     # sigmas = []
@@ -125,7 +125,7 @@ def process_data(data_dir, dataname):
     pointcloud = pointcloud / shape_scale
 
 
-noise_points_produce(data_path=args[1])
+noise_points_produce(data_path=args[1], save_path=args[2])
         
     
                     
