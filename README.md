@@ -1,6 +1,6 @@
 # Learning Signed Distance Functions from Noisy 3D Point Clouds via Noise to Noise Mapping (ICML 2023 Oral)
 
-<h2 align="center"><a href="https://arxiv.org/abs/2306.01405">Project Page</a> | <a href="https://mabaorui.github.io/">Personal Web Page</a> | <a href="https://arxiv.org/abs/2306.01405">Paper</a></h2>
+<h2 align="center"><a href="https://mabaorui.github.io/Noise2NoiseMapping/">Project Page</a> | <a href="https://mabaorui.github.io/">Personal Web Page</a> | <a href="https://arxiv.org/abs/2306.01405">Paper</a></h2>
 
 <p align="left">
   <img src="img/demo.png" width="780" />
